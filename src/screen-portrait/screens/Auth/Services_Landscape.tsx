@@ -142,7 +142,7 @@ export default ({ navigation }): React.ReactElement => {
     };
     const getSettingsService = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'get settings service: ',
                 GLOBAL.HTTPvsHTTPS +
                 'authorize.akamaized.net/mappings/' +
@@ -159,7 +159,7 @@ export default ({ navigation }): React.ReactElement => {
             );
             let data = await response.json();
             data = JSON.parse(data);
-            console.log('get settings service response: ', data);
+            GLOBAL.show_log && console.log('get settings service response: ', data);
             GLOBAL.Settings_Login = data;
             GLOBAL.CMS = data.cms;
             GLOBAL.CRM = data.crm;

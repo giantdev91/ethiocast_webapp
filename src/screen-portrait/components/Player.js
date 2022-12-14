@@ -352,7 +352,7 @@ const Player = ({
             setShowModal(true);
         } else {
 
-            console.log('stream url ====> ', streamUrl);
+            GLOBAL.show_log && console.log('stream url ====> ', streamUrl);
 
             setAllStreamValues({
                 ...allStreamValues,
@@ -692,10 +692,10 @@ const Player = ({
                 '';
 
             try {
-                console.log('get ads from server: ', path);
+                GLOBAL.show_log && console.log('get ads from server: ', path);
                 let response = await fetch(path);
                 let ads = await response.json();
-                console.log('get ads from server response: ', ads);
+                GLOBAL.show_log && console.log('get ads from server response: ', ads);
                 if (adsPreroll == 1 && ads.preroll[0].url != null) {
                     setAdShownForCertainChannel(content.channel.channel_id);
                     setAllStreamValuesAds({
@@ -3292,10 +3292,10 @@ const Player = ({
                 '/' +
                 movie_id +
                 '_movie_details_v2.json';
-            console.log('get movie details: ', path);
+            GLOBAL.show_log && console.log('get movie details: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get movie details: ', data);
+            GLOBAL.show_log && console.log('get movie details: ', data);
             return { success: true, movie: data };
         } catch (error) {
             return { success: false };

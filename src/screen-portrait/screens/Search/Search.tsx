@@ -170,10 +170,10 @@ export default ({ navigation, route }): React.ReactElement => {
                 '/' +
                 GLOBAL.User.products.productid +
                 '_search.json';
-            console.log('get search content: ', path);
+            GLOBAL.show_log && console.log('get search content: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get search content response: ', data);
+            GLOBAL.show_log && console.log('get search content response: ', data);
             if (data != undefined) {
                 if (data != null) {
                     var channelsCatchup = UTILS.getCatchupChannels();
@@ -252,10 +252,10 @@ export default ({ navigation, route }): React.ReactElement => {
             '_product_catchup.json?t=' +
             new Date().getTime();
         try {
-            console.log('get catchup data: ', path);
+            GLOBAL.show_log && console.log('get catchup data: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get catchup data response: ', data);
+            GLOBAL.show_log && console.log('get catchup data response: ', data);
             if (data != undefined) {
                 return { success: true, data: data };
             } else {

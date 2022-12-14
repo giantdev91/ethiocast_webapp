@@ -236,10 +236,10 @@ export default ({ navigation }): React.ReactElement => {
             GLOBAL.ProductID +
             '_product_apps_v2.json';
         try {
-            console.log('get app marketplace: ', path);
+            GLOBAL.show_log && console.log('get app marketplace: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get app marketplace response: ', data);
+            GLOBAL.show_log && console.log('get app marketplace response: ', data);
             var intalledAppsCat = {
                 id: 999,
                 name: LANG.getTranslation('installed'),

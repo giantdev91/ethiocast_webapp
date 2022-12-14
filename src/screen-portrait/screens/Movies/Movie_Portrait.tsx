@@ -442,10 +442,10 @@ export default ({ navigation, route }): React.ReactElement => {
                 '/' +
                 movie_id +
                 '_movie_details_v2.json';
-            console.log('get movie: ', path);
+            GLOBAL.show_log && console.log('get movie: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get movie response: ', data);
+            GLOBAL.show_log && console.log('get movie response: ', data);
             return { success: true, movie: data };
         } catch (error) {
             return { success: false };

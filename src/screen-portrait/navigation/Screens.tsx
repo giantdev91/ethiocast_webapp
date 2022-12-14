@@ -20,7 +20,7 @@ import SIZES from "../constants/sizes";
 import { MenuStack } from "./MenuStack";
 
 export default () => {
-  console.log("GLOBAL ====> ", GLOBAL);
+  GLOBAL.show_log && console.log("GLOBAL ====> ", GLOBAL);
   const [authenticated, setAuthenticated] = useState(GLOBAL.Authenticated);
   const [profiled, setProfiled] = useState(false);
   const [loaded, setLoaded] = useState(GLOBAL.Loaded);
@@ -34,7 +34,7 @@ export default () => {
   };
 
   useEffect(() => {
-    console.log("GLOBAL ====> ", GLOBAL);
+    GLOBAL.show_log && console.log("GLOBAL ====> ", GLOBAL);
 
     setAuthenticated(GLOBAL.Authenticated);
     setLoaded(GLOBAL.Loaded);

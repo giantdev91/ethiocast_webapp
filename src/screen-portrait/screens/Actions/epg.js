@@ -47,10 +47,10 @@ export default class UPDATE extends Component {
                 '_product_epg_v4.json?t=' +
                 new Date().getTime();
             try {
-                console.log('get epg data: ', path);
+                GLOBAL.show_log && console.log('get epg data: ', path);
                 let response = await fetch(path);
                 let data = await response.json();
-                console.log('get epg data response: ', data);
+                GLOBAL.show_log && console.log('get epg data response: ', data);
                 GLOBAL.EPG = data.channels;
                 GLOBAL.EPG_TODAY = GLOBAL.EPG;
                 GLOBAL.EPG_DATE_LOADED = date;
@@ -83,10 +83,10 @@ export default class UPDATE extends Component {
                     '_package_epg_v4.json?t=' +
                     new Date().getTime();
                 try {
-                    console.log('get extra epg: ', path);
+                    GLOBAL.show_log && console.log('get extra epg: ', path);
                     let response = await fetch(path);
                     let data = await response.json();
-                    console.log('get extra epg response: ', data);
+                    GLOBAL.show_log && console.log('get extra epg response: ', data);
                     data.channels.forEach(function (element) {
                         GLOBAL.EPG = GLOBAL.EPG.concat(element);
                         GLOBAL.EPG_TODAY = GLOBAL.EPG_TODAY.concat(element);

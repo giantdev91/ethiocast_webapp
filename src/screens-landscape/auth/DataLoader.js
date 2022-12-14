@@ -1614,7 +1614,7 @@ export default class DataLoader extends Component {
             myHeaders.set('Accept-Encoding', 'gzip;q=1.0, compress;q=0.5');
         }
         try {
-            console.log('get json: ', path);
+            GLOBAL.show_log && console.log('get json: ', path);
             const jsonCall = await fetch(path, {
                 method: 'GET',
                 headers: myHeaders,
@@ -1622,7 +1622,7 @@ export default class DataLoader extends Component {
                 cors: 'no-cors',
             });
             const json_ = await jsonCall;
-            console.log('get json response: ', json_.json());
+            GLOBAL.show_log && console.log('get json response: ', json_.json());
             return json_.json();
         } catch (err) {}
     }

@@ -105,11 +105,11 @@ class UTILS {
             GLOBAL.HTTPvsHTTPS +
             'cloudtv.akamaized.net/ip.php?_=' +
             moment().unix();
-        console.log('set player token type: ', path);
+        GLOBAL.show_log && console.log('set player token type: ', path);
         return fetch(path)
             .then(response_ => response_.json())
             .then(res => {
-                console.log('set player token type response: ', res);
+                GLOBAL.show_log && console.log('set player token type response: ', res);
                 GLOBAL.Device_IpAddress = res.ip;
                 GLOBAL.Device_Time = res.time;
 
@@ -122,7 +122,7 @@ class UTILS {
                 if (type == 'Flussonic') {
                     urlOut = TOKEN.getFlussonicToken(url);
                 }
-                console.log('return url ====> ', urlOut);
+                GLOBAL.show_log && console.log('return url ====> ', urlOut);
                 return urlOut;
             })
             .catch(error => {

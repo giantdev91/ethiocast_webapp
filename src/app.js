@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Platform, LogBox, View, StatusBar} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, LogBox, View, StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import TimerMixin from 'react-timer-mixin';
 import AppLandscape from './placeholders/app-landscape';
@@ -10,7 +10,7 @@ class app extends Component {
     constructor(props) {
         super(props);
         const themeStyle = STYLE.getStyle();
-        styles = {...themeStyle, ...baseStyle};
+        styles = { ...themeStyle, ...baseStyle };
         GLOBAL.Focus = 'Outside';
         this.state = {
             app_type: '',
@@ -18,18 +18,19 @@ class app extends Component {
     }
     componentDidMount() {
         DeviceInformation.getDeviceInformation().then(result => {
-            if (Platform.OS == 'android' || Platform.OS == 'ios') {
+            GLOBAL.show_log && GLOBAL.show_log && console.log('platform ===> ', Platform);
+            if (Platform.OS == 'android' || Platform.OS == 'ios' || Platform.OS == 'web') {
                 // LogBox.ignoreLogs(['Warning: ...']);
                 LogBox.ignoreAllLogs(true);
             }
             TimerMixin.clearTimeout(this.timer1);
             this.timer1 = TimerMixin.setTimeout(() => {
-                console.log('platform: ', Platform.OS);
-                console.log('Device_Model: ', GLOBAL.Device_Model);
-                console.log('Device_IsTablet: ', GLOBAL.Device_IsTablet);
-                console.log('Device_IsPhone: ', GLOBAL.Device_IsPhone);
-                console.log('Device_IsWebTV', GLOBAL.Device_IsWebTV);
-                console.log('Device_IsSmartTV', GLOBAL.Device_IsSmartTV);
+                GLOBAL.show_log && console.log('platform: ', Platform.OS);
+                GLOBAL.show_log && console.log('Device_Model: ', GLOBAL.Device_Model);
+                GLOBAL.show_log && console.log('Device_IsTablet: ', GLOBAL.Device_IsTablet);
+                GLOBAL.show_log && console.log('Device_IsPhone: ', GLOBAL.Device_IsPhone);
+                GLOBAL.show_log && console.log('Device_IsWebTV', GLOBAL.Device_IsWebTV);
+                GLOBAL.show_log && console.log('Device_IsSmartTV', GLOBAL.Device_IsSmartTV);
 
                 if (Platform.OS == 'android') {
                     SplashScreen.hide();
@@ -101,9 +102,9 @@ class app extends Component {
     }
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
                 {RenderIf(this.state.app_type == 'Portrait')(
-                    <View style={{flex: 1, backgroundColor: 'black'}}>
+                    <View style={{ flex: 1, backgroundColor: 'black' }}>
                         <StatusBar
                             animated={true}
                             translucent={true}

@@ -21,7 +21,7 @@ export default ({ navigation }): React.ReactElement => {
     const onSignInButtonPress = (): void => {
         (async () => {
             try {
-                console.log(
+                GLOBAL.show_log && console.log(
                     'on sign in button press: ',
                     'https://connect.tvms.io/checkcode?code=' +
                     connectCode +
@@ -43,7 +43,7 @@ export default ({ navigation }): React.ReactElement => {
                     GLOBAL.ServiceID,
                 );
                 let data = await response.json();
-                console.log('on sign in button press response: ', data);
+                GLOBAL.show_log && console.log('on sign in button press response: ', data);
                 if (data.success == false) {
                     numberOne.current.clear();
                     numberTwo.current.clear();

@@ -101,10 +101,10 @@ export default ({navigation, route}): React.ReactElement => {
                 '.' +
                 GLOBAL.Pass +
                 '.profile';
-            console.log('get profiles: ', path);
+            GLOBAL.show_log && console.log('get profiles: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get profiles response: ', data);
+            GLOBAL.show_log && console.log('get profiles response: ', data);
             if (data.profile == undefined) {
                 if (GLOBAL.Profiles.length > 0) {
                     normalizeProfile();

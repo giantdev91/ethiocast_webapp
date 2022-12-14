@@ -89,7 +89,7 @@ export default ({ navigation }): React.ReactElement => {
             UTILS.storeJson('Pass', GLOBAL.Pass);
             setAuthenticating(true);
             let res = await getUserIp();
-            console.log('authentication result ====> ', res);
+            GLOBAL.show_log && console.log('authentication result ====> ', res);
             if (res.success) {
                 var test = '';
                 if (GLOBAL.Device_IsWebTV) {
@@ -137,7 +137,7 @@ export default ({ navigation }): React.ReactElement => {
 
     const getUserIp = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'get user ip: ',
                 'https://cloudtv.akamaized.net/ip.php?_=' + moment().unix(),
             );
@@ -145,7 +145,7 @@ export default ({ navigation }): React.ReactElement => {
                 'https://cloudtv.akamaized.net/ip.php?_=' + moment().unix(),
             );
             let data = await response.json();
-            console.log('get user ip response: ', data);
+            GLOBAL.show_log && console.log('get user ip response: ', data);
             if (data != undefined) {
                 GLOBAL.Device_IpAddress = data.ip;
                 return getAccessToken();
@@ -158,7 +158,7 @@ export default ({ navigation }): React.ReactElement => {
     };
     const getUserIpFailBack = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'get user ip failback: ',
                 'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
@@ -166,7 +166,7 @@ export default ({ navigation }): React.ReactElement => {
                 'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
             let data = await response.json();
-            console.log('get user ip failback response: ', data);
+            GLOBAL.show_log && console.log('get user ip failback response: ', data);
             if (data != undefined) {
                 GLOBAL.Device_IpAddress = data.ip;
                 return getAccessToken();
@@ -195,7 +195,7 @@ export default ({ navigation }): React.ReactElement => {
                 '/' +
                 UTILS.toAlphaNumeric(GLOBAL.Pass) +
                 '.json';
-            console.log('get access token: ', GLOBAL.HTTPvsHTTPS +
+            GLOBAL.show_log && console.log('get access token: ', GLOBAL.HTTPvsHTTPS +
                 'authorize.akamaized.net/encrypt.php?CID=' +
                 path +
                 '&time=' +
@@ -208,9 +208,9 @@ export default ({ navigation }): React.ReactElement => {
                 moment().unix(),
             );
             let data = await response.json();
-            console.log('get access token response: ', data);
+            GLOBAL.show_log && console.log('get access token response: ', data);
             try {
-                console.log('authorize token: ', GLOBAL.HTTPvsHTTPS +
+                GLOBAL.show_log && console.log('authorize token: ', GLOBAL.HTTPvsHTTPS +
                     'authorize.akamaized.net/login.php?CID=' +
                     data.CID +
                     '&time=' +
@@ -223,7 +223,7 @@ export default ({ navigation }): React.ReactElement => {
                     moment().unix(),
                 );
                 let data_ = await response_.json();
-                console.log('authorize token response: ', data);
+                GLOBAL.show_log && console.log('authorize token response: ', data);
                 if (!data_.CID) {
                     return {
                         success: false,
@@ -257,7 +257,7 @@ export default ({ navigation }): React.ReactElement => {
             '.json';
         const url = 'path=' + path + '~token=' + token;
         try {
-            console.log('get user: ', GLOBAL.HTTPvsHTTPS +
+            GLOBAL.show_log && console.log('get user: ', GLOBAL.HTTPvsHTTPS +
                 'authorize.akamaized.net/encrypt.php?CID=' +
                 url +
                 '&time=' +
@@ -270,7 +270,7 @@ export default ({ navigation }): React.ReactElement => {
                 moment().unix(),
             );
             let data = await response.json();
-            console.log('get user response: ', data);
+            GLOBAL.show_log && console.log('get user response: ', data);
             try {
                 let response_ = await fetch(
                     GLOBAL.HTTPvsHTTPS +
@@ -375,7 +375,7 @@ export default ({ navigation }): React.ReactElement => {
     };
     const getUserLocation = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'get user location: ',
                 'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
@@ -383,7 +383,7 @@ export default ({ navigation }): React.ReactElement => {
                 'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
             let data = await response.json();
-            console.log('get user location response: ', data);
+            GLOBAL.show_log && console.log('get user location response: ', data);
             if (data != undefined) {
                 var city = data.city.toLowerCase();
                 city = data.city.charAt(0).toUpperCase() + city.slice(1);
@@ -432,7 +432,7 @@ export default ({ navigation }): React.ReactElement => {
     };
     const getUserLocationFailback = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'get user location failback: ',
                 GLOBAL.HTTPvsHTTPS +
                 'cloudtv.akamaized.net/location.php?_=' +
@@ -444,7 +444,7 @@ export default ({ navigation }): React.ReactElement => {
                 moment().unix(),
             );
             let data = await response.json();
-            console.log('get user location failback response: ', data);
+            GLOBAL.show_log && console.log('get user location failback response: ', data);
             if (data != undefined) {
                 var city = data.city.toLowerCase();
                 city = data.city.charAt(0).toUpperCase() + city.slice(1);
@@ -481,10 +481,10 @@ export default ({ navigation }): React.ReactElement => {
             GLOBAL.ProductID +
             '_v2.json';
         try {
-            console.log('get access location: ', path);
+            GLOBAL.show_log && console.log('get access location: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get access location response: ', data);
+            GLOBAL.show_log && console.log('get access location response: ', data);
             if (data != null && data != undefined) {
                 var checkCountry = data.geoaccess.find(
                     c => c.country == GLOBAL.Country,
@@ -565,10 +565,10 @@ export default ({ navigation }): React.ReactElement => {
             GLOBAL.ProductID +
             '_product_v2.json';
         try {
-            console.log('get product: ', path);
+            GLOBAL.show_log && console.log('get product: ', path);
             let response = await fetch(path);
             let product = await response.json();
-            console.log('get product response: ', product);
+            GLOBAL.show_log && console.log('get product response: ', product);
             GLOBAL.App_Theme = product.ui;
             //GLOBAL.App_Theme = 'Rhodium';
             // GLOBAL.App_Theme = 'Iridium';
@@ -819,11 +819,11 @@ export default ({ navigation }): React.ReactElement => {
             '/settings/settings.json';
 
         try {
-            console.log('get settings gui: ', path);
+            GLOBAL.show_log && console.log('get settings gui: ', path);
             let response = await fetch(path);
             let settings = await response.json();
             settings = JSON.parse(settings);
-            console.log('get settings gui response: ', settings);
+            GLOBAL.show_log && console.log('get settings gui response: ', settings);
             GLOBAL.Settings_Gui = settings;
             GLOBAL.UserInterface = settings.userinterface;
 
@@ -997,10 +997,10 @@ export default ({ navigation }): React.ReactElement => {
             '.' +
             UTILS.toAlphaNumeric(GLOBAL.Pass);
         try {
-            console.log('get registered devices: ', path);
+            GLOBAL.show_log && console.log('get registered devices: ', path);
             let response = await fetch(path);
             let devices = await response.json();
-            console.log('get registered devices response: ', devices);
+            GLOBAL.show_log && console.log('get registered devices response: ', devices);
             if (devices.devices != undefined) {
                 var uuidCheck = devices.devices.filter(
                     d => d.uuid == GLOBAL.Device_UniqueID,
@@ -1157,10 +1157,10 @@ export default ({ navigation }): React.ReactElement => {
             GLOBAL.ResellerID +
             '_reseller.json';
         try {
-            console.log('get reseller branding: ', path);
+            GLOBAL.show_log && console.log('get reseller branding: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get reseller branding response: ', data);
+            GLOBAL.show_log && console.log('get reseller branding response: ', data);
             if (data != undefined) {
                 GLOBAL.Reseller = data;
                 GLOBAL.Button_Color = data.selection_color;

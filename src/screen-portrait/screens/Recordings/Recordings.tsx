@@ -175,11 +175,11 @@ export default ({ navigation }): React.ReactElement => {
             UTILS.toAlphaNumeric(GLOBAL.Pass) +
             '.json';
         try {
-            console.log('get recording: ', path);
+            GLOBAL.show_log && console.log('get recording: ', path);
             let response = await fetch(path);
             let data = await response.json();
             let converted = JSON.parse(data);
-            console.log('get recording response: ', converted);
+            GLOBAL.show_log && console.log('get recording response: ', converted);
             GLOBAL.Recordings = converted.recordings;
             GLOBAL.Storage_Used = converted.storage.used;
             GLOBAL.Storage_Hours = converted.storage.total_hours;

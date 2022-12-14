@@ -3,7 +3,7 @@ class Loading {
         // UTILS.retrieveJson('AutoLogin').then((data) => {
         // if (data) { GLOBAL.AutoLogin = data; }
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'fetchServices: ',
                 GLOBAL.HTTPvsHTTPS +
                     'authorize.akamaized.net/mappings/' +
@@ -29,7 +29,7 @@ class Loading {
     };
     fetchServicesData = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'fetchServiceData: ',
                 GLOBAL.HTTPvsHTTPS +
                     'authorize.akamaized.net/mappings/' +
@@ -55,7 +55,7 @@ class Loading {
     };
     fetchSettings = async () => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'fetchSettings: ',
                 GLOBAL.HTTPvsHTTPS +
                     'authorize.akamaized.net/mappings/' +

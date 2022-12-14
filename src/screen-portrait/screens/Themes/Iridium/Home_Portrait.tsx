@@ -184,7 +184,7 @@ export default ({ navigation }): React.ReactElement => {
                                         queryString += '&ads.h=1080';
                                         url_ += queryString;
                                     }
-                                    console.log('live tv request url =====> ', url_);
+                                    GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                                     setAllStreamValues({
                                         ...allStreamValues,
                                         url: url_,
@@ -240,7 +240,7 @@ export default ({ navigation }): React.ReactElement => {
                                         queryString += '&ads.h=1080';
                                         url_ += queryString;
                                     }
-                                    console.log('live tv request url =====> ', url_);
+                                    GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                                     setAllStreamValues({
                                         ...allStreamValues,
                                         url: url_,
@@ -279,7 +279,7 @@ export default ({ navigation }): React.ReactElement => {
                             queryString += '&ads.h=1080';
                             url_ += queryString;
                         }
-                        console.log('live tv request url =====> ', url_);
+                        GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                         setAllStreamValues({
                             ...allStreamValues,
                             url: url_,
@@ -353,7 +353,7 @@ export default ({ navigation }): React.ReactElement => {
                                     queryString += '&ads.h=1080';
                                     url_ += queryString;
                                 }
-                                console.log('live tv request url =====> ', url_);
+                                GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                                 setAllStreamValues({
                                     ...allStreamValues,
                                     url: url_,
@@ -405,7 +405,7 @@ export default ({ navigation }): React.ReactElement => {
                                     queryString += '&ads.h=1080';
                                     url_ += queryString;
                                 }
-                                console.log('live tv request url =====> ', url_);
+                                GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                                 setAllStreamValues({
                                     ...allStreamValues,
                                     url: url_,
@@ -443,7 +443,7 @@ export default ({ navigation }): React.ReactElement => {
                         queryString += '&ads.h=1080';
                         url_ += queryString;
                     }
-                    console.log('live tv request url =====> ', url_);
+                    GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                     setAllStreamValues({
                         ...allStreamValues,
                         url: url_,
@@ -471,7 +471,7 @@ export default ({ navigation }): React.ReactElement => {
     }, [navigation]);
     const _handleAppStateChange = nextAppState => {
         if (nextAppState == 'background') {
-            console.log('live tv request url =====> ', url_);
+            GLOBAL.show_log && console.log('live tv request url =====> ', url_);
             setAllStreamValues({
                 ...allStreamValues,
                 url: '',
@@ -541,7 +541,7 @@ export default ({ navigation }): React.ReactElement => {
                                     queryString += '&ads.h=1080';
                                     url_ += queryString;
                                 }
-                                console.log('live tv request url =====> ', url_);
+                                GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                                 setAllStreamValues({
                                     ...allStreamValues,
                                     url: url_,
@@ -593,7 +593,7 @@ export default ({ navigation }): React.ReactElement => {
                                     queryString += '&ads.h=1080';
                                     url_ += queryString;
                                 }
-                                console.log('live tv request url =====> ', url_);
+                                GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                                 setAllStreamValues({
                                     ...allStreamValues,
                                     url: url_,
@@ -631,7 +631,7 @@ export default ({ navigation }): React.ReactElement => {
                         queryString += '&ads.h=1080';
                         url_ += queryString;
                     }
-                    console.log('live tv request url =====> ', url_);
+                    GLOBAL.show_log && console.log('live tv request url =====> ', url_);
                     setAllStreamValues({
                         ...allStreamValues,
                         url: url_,

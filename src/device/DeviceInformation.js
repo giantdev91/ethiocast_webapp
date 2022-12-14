@@ -91,7 +91,7 @@ class DeviceInformation {
             GLOBAL.Device_Model = DeviceInfo.getModel();
             GLOBAL.Device_OS_Version = DeviceInfo.getSystemVersion();
             GLOBAL.Device_UUID = DeviceInfo.getUniqueId();
-            console.log('GLOBAL =====> ', GLOBAL);
+            GLOBAL.show_log && console.log('GLOBAL =====> ', GLOBAL);
             if (Platform.isTVOS) {
                 return this.getDevice();
             } else {

@@ -964,10 +964,10 @@ export default ({ navigation }): React.ReactElement => {
                 UTILS.toAlphaNumeric(GLOBAL.UserID) +
                 '.' +
                 UTILS.toAlphaNumeric(GLOBAL.Pass);
-            console.log('get devices: ', path);
+            GLOBAL.show_log && console.log('get devices: ', path);
             let response = await fetch(path);
             let data = await response.json();
-            console.log('get devices response: ', data);
+            GLOBAL.show_log && console.log('get devices response: ', data);
             if (data != undefined) {
                 return { success: true, devices: data.devices };
             } else {

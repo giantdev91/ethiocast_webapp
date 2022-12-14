@@ -165,7 +165,7 @@ class TOKEN {
     getTokenFromIrdetoServer(path) {
         var myHeaders = new Headers();
         myHeaders.set('Content-Type', 'application/octet-stream');
-        console.log('get token from irde to server: ', path);
+        GLOBAL.show_log && console.log('get token from irde to server: ', path);
         try {
             return fetch(path, {
                 method: 'POST',
@@ -179,7 +179,7 @@ class TOKEN {
         } catch (err) {}
     }
     getTokenFromServer(path) {
-        console.log('get token from server: ', path);
+        GLOBAL.show_log && console.log('get token from server: ', path);
         return fetch(path)
             .then(res => {
                 let result = res.text();

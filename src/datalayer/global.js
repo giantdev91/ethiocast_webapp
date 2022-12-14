@@ -560,4 +560,5 @@ export default {
         'မြန်မာစာ or မြန်မာစကား',
         'کوردی',
     ],
+    show_log: false,
 };

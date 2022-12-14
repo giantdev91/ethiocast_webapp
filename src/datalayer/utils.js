@@ -1292,7 +1292,7 @@ class UTILS {
     }
     checkMenuExists(menu) {
         var exist = false;
-        console.log('check menu exist called');
+        GLOBAL.show_log && console.log('check menu exist called');
         var test = GLOBAL.Menu.find(m => m.name == menu);
         if (test != undefined) {
             exist = true;

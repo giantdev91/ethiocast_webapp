@@ -31,7 +31,7 @@ export default ({ navigation }): React.ReactElement => {
                 if (test == "?connect") {
                   navigation && navigation.navigate("Check");
                 } else {
-                  console.log("content loader called!!!!");
+                  GLOBAL.show_log && console.log("content loader called!!!!");
                   let res3 = await ContentLoader.getContent();
                   if (res3.success) {
                     GLOBAL.Loaded = true;
@@ -70,7 +70,7 @@ export default ({ navigation }): React.ReactElement => {
                 if (test == "?connect") {
                   navigation && navigation.navigate("Check");
                 } else {
-                  console.log("content loader ====> ");
+                  GLOBAL.show_log && console.log("content loader ====> ");
                   let res2 = await ContentLoader.getContent();
                   if (res2.success) {
                     GLOBAL.Loaded = true;

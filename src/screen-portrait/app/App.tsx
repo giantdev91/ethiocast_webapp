@@ -38,8 +38,8 @@ export default (): React.ReactElement => {
                 );
             });
 
-            console.log('bugsnag report config: ', config);
-            console.log(
+            GLOBAL.show_log && console.log('bugsnag report config: ', config);
+            GLOBAL.show_log && console.log(
                 'metadata: ',
                 'User: ' + GLOBAL.UserID + ' - ' + GLOBAL.Pass,
                 'IMS: ' + GLOBAL.IMS,

@@ -10,7 +10,7 @@ class ContentLoader {
         try {
             GLOBAL.EducationStores = [];
             GLOBAL.SeriesStores = [];
-            console.log("get content response start ====> ");
+            GLOBAL.show_log && console.log("get content response start ====> ");
 
             const responses = await Promise.all([
                 ContentLoader.getContentTags(),
@@ -23,10 +23,10 @@ class ContentLoader {
                 ContentLoader.getHome(),
             ]);
 
-            console.log("get content response end ====> ");
+            GLOBAL.show_log && console.log("get content response end ====> ");
             return { success: true };
         } catch (error) {
-            console.log("content loader error =====> ", error);
+            GLOBAL.show_log && console.log("content loader error =====> ", error);
             return [];
         }
     };
@@ -41,11 +41,11 @@ class ContentLoader {
             "/" +
             GLOBAL.User.products.productid +
             "_tags.json";
-        console.log("get content tags: ", path);
+        GLOBAL.show_log && console.log("get content tags: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get content tags response: ", data);
+            GLOBAL.show_log && console.log("get content tags response: ", data);
             if (data != undefined) {
                 GLOBAL.Tags = data;
             }
@@ -63,11 +63,11 @@ class ContentLoader {
             "/jsons/" +
             GLOBAL.CRM +
             "/product_support.json";
-        console.log("get support menu: ", path);
+        GLOBAL.show_log && console.log("get support menu: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get support menu response: ", data);
+            GLOBAL.show_log && console.log("get support menu response: ", data);
             if (data != undefined) {
                 GLOBAL.SupportPages = data;
             }
@@ -90,11 +90,11 @@ class ContentLoader {
             "/" +
             GLOBAL.ProductID +
             "_product_channels_v2.json";
-        console.log("get channel data: ", path);
+        GLOBAL.show_log && console.log("get channel data: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get channel data response: ", data);
+            GLOBAL.show_log && console.log("get channel data response: ", data);
             GLOBAL.Channels = data.tv;
             GLOBAL.Channels_Selected = data.tv[0].channels;
             GLOBAL.Channels_Selected_Category_ID = data.tv[0].id;
@@ -122,11 +122,11 @@ class ContentLoader {
                 "/" +
                 GLOBAL.User.products.ChannelPackages[id].PackageID +
                 "_package_tv_v2.json";
-            console.log("get extra channel package: ", path);
+            GLOBAL.show_log && console.log("get extra channel package: ", path);
             try {
                 let response = await fetch(path);
                 let data = await response.json();
-                console.log("get extra channel package response: ", data);
+                GLOBAL.show_log && console.log("get extra channel package response: ", data);
                 data = data.tv;
                 data.forEach(function (category) {
                     var test = GLOBAL.Channels.find((cat) => cat.name == category.name);
@@ -179,11 +179,11 @@ class ContentLoader {
                 GLOBAL.ProductID +
                 "_product_epg_v4.json?t=" +
                 new Date().getTime();
-            console.log("get Epg Data: ", path);
+            GLOBAL.show_log && console.log("get Epg Data: ", path);
             try {
                 let response = await fetch(path);
                 let data = await response.json();
-                console.log("get Epg Data response: ", data);
+                GLOBAL.show_log && console.log("get Epg Data response: ", data);
                 GLOBAL.EPG = data.channels;
                 GLOBAL.EPG_TODAY = GLOBAL.EPG;
                 GLOBAL.EPG_DATE_LOADED = date;
@@ -220,11 +220,11 @@ class ContentLoader {
                     GLOBAL.User.products.ChannelPackages[id].PackageID +
                     "_package_epg_v4.json?t=" +
                     new Date().getTime();
-                console.log("get extra Epg: ", path);
+                GLOBAL.show_log && console.log("get extra Epg: ", path);
                 try {
                     let response = await fetch(path);
                     let data = await response.json();
-                    console.log("get extra Epg response: ", data);
+                    GLOBAL.show_log && console.log("get extra Epg response: ", data);
                     data.channels.forEach(function (element) {
                         GLOBAL.EPG = GLOBAL.EPG.concat(element);
                         GLOBAL.EPG_TODAY = GLOBAL.EPG_TODAY.concat(element);
@@ -274,11 +274,11 @@ class ContentLoader {
             "/" +
             storeId +
             "_series_stores_v2.json";
-        console.log("get series stores: ", path);
+        GLOBAL.show_log && console.log("get series stores: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get series stores response: ", data);
+            GLOBAL.show_log && console.log("get series stores response: ", data);
             if (data.seriestore && data.seriestore.length > 0) {
                 data.seriestore.forEach((item) => {
                     GLOBAL.SeriesStores.push(item);
@@ -325,11 +325,11 @@ class ContentLoader {
             "/" +
             storeId +
             "_course_levels_v2.json";
-        console.log("get education stores: ", path);
+        GLOBAL.show_log && console.log("get education stores: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get education stores response: ", data);
+            GLOBAL.show_log && console.log("get education stores response: ", data);
             if (data.courselevels && data.courselevels.length > 0) {
                 data.courselevels.forEach((item) => {
                     GLOBAL.EducationStores.push(item);
@@ -359,11 +359,11 @@ class ContentLoader {
             "/" +
             GLOBAL.ProductID +
             "_product_movies_v2.json";
-        console.log("get movie stores: ", path);
+        GLOBAL.show_log && console.log("get movie stores: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get movie stores response: ", data);
+            GLOBAL.show_log && console.log("get movie stores response: ", data);
             if (data != undefined) {
                 GLOBAL.MovieStores = data.vodstore;
             }
@@ -388,11 +388,11 @@ class ContentLoader {
             "/" +
             GLOBAL.ProductID +
             "_product_albums_v2.json";
-        console.log("get music albums: ", path);
+        GLOBAL.show_log && console.log("get music albums: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get music albums response: ", data);
+            GLOBAL.show_log && console.log("get music albums response: ", data);
             if (data != undefined) {
                 GLOBAL.Album_Categories = data.categories;
                 GLOBAL.Albums = data.categories[0].albums;
@@ -414,11 +414,11 @@ class ContentLoader {
             "/" +
             GLOBAL.ProductID +
             "_metro_v2.json";
-        console.log("get home: ", path);
+        GLOBAL.show_log && console.log("get home: ", path);
         try {
             let response = await fetch(path);
             let data = await response.json();
-            console.log("get home response: ", data);
+            GLOBAL.show_log && console.log("get home response: ", data);
             GLOBAL.Metro = data;
             return { success: true };
         } catch (error) {

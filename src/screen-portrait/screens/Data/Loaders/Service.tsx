@@ -36,7 +36,7 @@ class ServiceLoader {
         //DAL.getLoginSettings(GLOBAL.Package)
         //.then((data) => {
         try {
-            console.log(
+            GLOBAL.show_log && console.log(
                 'get setting service: ',
                 GLOBAL.HTTPvsHTTPS +
                     'authorize.akamaized.net/mappings/' +
@@ -53,7 +53,7 @@ class ServiceLoader {
             );
             let data = await response.json();
             data = JSON.parse(data);
-            console.log('get setting service response: ', data);
+            GLOBAL.show_log && console.log('get setting service response: ', data);
             GLOBAL.Settings_Login = data;
             GLOBAL.CMS = data.cms;
             GLOBAL.CRM = data.crm;

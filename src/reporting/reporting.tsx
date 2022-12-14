@@ -286,7 +286,7 @@ const sendContentReport = async (report, type) => {
         body: JSON.stringify(finalReport),
     };
     try {
-        console.log(
+        GLOBAL.show_log && console.log(
             'send content report: ',
             'https://reporting.tvms.io/add/content',
         );
@@ -319,7 +319,7 @@ const sendUsageReport = async (report, type) => {
         body: JSON.stringify(finalReport),
     };
     try {
-        console.log(
+        GLOBAL.show_log && console.log(
             'send usage report: ',
             'https://reporting.tvms.io/add/usage',
         );
