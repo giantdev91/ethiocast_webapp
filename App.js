@@ -37,8 +37,11 @@ import TOKEN from './src/datalayer/token';
 import baseStyle from './src/styling/base';
 import RenderIf from './src/utils/RenderIf';
 import { name as appName } from './app.json';
+import Bugsnag from '@bugsnag/expo'
+Bugsnag.start({ apiKey: 'd0ee703ffcc7d40d8a61d204eea9ad0a' });
 
-// import {Client, Configuration, Report} from 'bugsnag-react-native';
+
+// import { Client, Configuration, Report } from 'bugsnag-react-native';
 // const config = new Configuration('d0ee703ffcc7d40d8a61d204eea9ad0a');
 // config.appVersion = require('./package.json').version;
 // const bugsnag = new Client(config);

@@ -27,24 +27,24 @@ export default (): React.ReactElement => {
             (GLOBAL.Device_System == 'Apple' &&
                 GLOBAL.Device_IsAppleTV == false)
         ) {
-            const config = new Configuration(
-                'd0ee703ffcc7d40d8a61d204eea9ad0a',
-            );
-            const report = new Report(config, error => {
-                report.addMetadata(
-                    'User: ' + GLOBAL.UserID + ' - ' + GLOBAL.Pass,
-                    'IMS: ' + GLOBAL.IMS,
-                    'Service: ' + GLOBAL.CMS + ' - ' + GLOBAL.CRM,
-                );
-            });
+            // const config = new Configuration(
+            //     'd0ee703ffcc7d40d8a61d204eea9ad0a',
+            // );
+            // const report = new Report(config, error => {
+            //     report.addMetadata(
+            //         'User: ' + GLOBAL.UserID + ' - ' + GLOBAL.Pass,
+            //         'IMS: ' + GLOBAL.IMS,
+            //         'Service: ' + GLOBAL.CMS + ' - ' + GLOBAL.CRM,
+            //     );
+            // });
 
-            GLOBAL.show_log && console.log('bugsnag report config: ', config);
-            GLOBAL.show_log && console.log(
-                'metadata: ',
-                'User: ' + GLOBAL.UserID + ' - ' + GLOBAL.Pass,
-                'IMS: ' + GLOBAL.IMS,
-                'Service: ' + GLOBAL.CMS + ' - ' + GLOBAL.CRM,
-            );
+            // GLOBAL.show_log && console.log('bugsnag report config: ', config);
+            // GLOBAL.show_log && console.log(
+            //     'metadata: ',
+            //     'User: ' + GLOBAL.UserID + ' - ' + GLOBAL.Pass,
+            //     'IMS: ' + GLOBAL.IMS,
+            //     'Service: ' + GLOBAL.CMS + ' - ' + GLOBAL.CRM,
+            // );
         }
         (async () => {
             let res = await AppLoading.fetchServices();
