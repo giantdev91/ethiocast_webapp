@@ -23,7 +23,7 @@ export default ({ navigation }): React.ReactElement => {
             try {
                 GLOBAL.show_log && console.log(
                     'on sign in button press: ',
-                    'https://connect.tvms.io/checkcode?code=' +
+                    GLOBAL.SIGN_IN_CHECK_CODE_URL + '?code=' +
                     connectCode +
                     '&userid=' +
                     GLOBAL.UserID +
@@ -33,7 +33,7 @@ export default ({ navigation }): React.ReactElement => {
                     GLOBAL.ServiceID,
                 );
                 let response = await fetch(
-                    'https://connect.tvms.io/checkcode?code=' +
+                    GLOBAL.SIGN_IN_CHECK_CODE_URL + '?code=' +
                     connectCode +
                     '&userid=' +
                     GLOBAL.UserID +

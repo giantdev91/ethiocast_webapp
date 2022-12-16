@@ -748,7 +748,7 @@ export default class Profiles extends Component {
                                             name={LANG.getTranslation(
                                                 'add_profile',
                                             )}
-                                            src="https://cloudtv.akamaized.net/apps/grey-circle-plus.png"
+                                            src={GLOBAL.USER_PROFILE_DEFAULT_AVATAR_URL}
                                             color="#555"
                                         />,
                                     )}

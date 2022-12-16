@@ -101,7 +101,7 @@ class REPORT {
         try {
             if (GLOBAL.Connected_Internet == true) {
                 const response = await fetch(
-                    'https://reports.tvms.io/analytics/report',
+                    GLOBAL.ANALYTICS_REPORT_URL,
                     {
                         method: 'POST',
                         cors: 'no-cors',

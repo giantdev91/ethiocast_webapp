@@ -956,7 +956,7 @@ export default ({ navigation }): React.ReactElement => {
     const getDevices = async () => {
         try {
             var path =
-                'https://devices.tvms.io/getdevice?collection_key=' +
+                GLOBAL.GET_DEVICE_URL + '?collection_key=' +
                 GLOBAL.IMS +
                 '.' +
                 GLOBAL.CRM +

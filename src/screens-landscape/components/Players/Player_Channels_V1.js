@@ -588,7 +588,7 @@ export default class Player_Channels_V1 extends Component {
             GLOBAL.Casting == false
         ) {
             this.fadeBackOut();
-            this.setState({ stream: 'http://test.com' });
+            this.setState({ stream: GLOBAL.VIDEO_TEST_URL });
         }
         if (
             nextAppState == 'background' &&
@@ -596,7 +596,7 @@ export default class Player_Channels_V1 extends Component {
             GLOBAL.Casting == false
         ) {
             this.fadeBackOut();
-            this.setState({ stream: 'http://test.com' }, () => {
+            this.setState({ stream: GLOBAL.VIDEO_TEST_URL }, () => {
                 UTILS.closeAppAndLogout();
             });
         }

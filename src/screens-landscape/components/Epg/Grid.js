@@ -266,7 +266,7 @@ export default class Grid extends PureComponent {
     _handleAppStateChange = nextAppState => {
         if (nextAppState == 'background') {
             this.setState({
-                videoUrl: 'http://test.com',
+                videoUrl: GLOBAL.VIDEO_TEST_URL,
             });
         }
     };

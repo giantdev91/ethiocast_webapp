@@ -358,7 +358,7 @@ export default class Player_M3U extends PureComponent {
     _handleAppStateChange = nextAppState => {
         if (nextAppState == 'background') {
             this.fadeBackOut();
-            this.setState({ stream: 'http://test.com' });
+            this.setState({ stream: GLOBAL.VIDEO_TEST_URL });
         }
         if (nextAppState == 'active') {
             this.fadeIn();

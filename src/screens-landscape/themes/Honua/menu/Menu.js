@@ -47,7 +47,7 @@ export default class Menu extends Component {
     _handleAppStateChange = nextAppState => {
         if (nextAppState == 'background') {
             this.setState({
-                videoUrl: 'http://test.com',
+                videoUrl: GLOBAL.VIDEO_TEST_URL,
             });
         }
     };

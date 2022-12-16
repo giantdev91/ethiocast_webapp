@@ -140,7 +140,7 @@ export default class Connect extends Component {
             try {
                 GLOBAL.show_log && console.log(
                     'check code: ',
-                    'https://connect.tvms.io/checkcode?code=' +
+                    GLOBAL.SIGN_IN_CHECK_CODE_URL + '?code=' +
                     this.state.userid +
                     '&userid=' +
                     GLOBAL.UserID +
@@ -150,7 +150,7 @@ export default class Connect extends Component {
                     GLOBAL.ServiceID,
                 );
                 let response = await fetch(
-                    'https://connect.tvms.io/checkcode?code=' +
+                    GLOBAL.SIGN_IN_CHECK_CODE_URL + '?code=' +
                     this.state.userid +
                     '&userid=' +
                     GLOBAL.UserID +

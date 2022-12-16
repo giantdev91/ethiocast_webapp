@@ -322,7 +322,7 @@ class DeviceInformation {
         if (GLOBAL.Device_IsWebTV) {
             if (GLOBAL.Device_UserAgent.indexOf('Tizen') >= 0) {
                 var tizenId = tizen.systeminfo.getCapability(
-                    'http://tizen.org/system/tizenid',
+                    GLOBAL.TIZEN_URL,
                 );
                 GLOBAL.Device_FormFactor = 'TV';
                 GLOBAL.Device_Manufacturer = 'Samsung Tizen';

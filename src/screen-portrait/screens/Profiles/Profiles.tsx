@@ -92,7 +92,7 @@ export default ({navigation, route}): React.ReactElement => {
     const getProfiles = async () => {
         try {
             var path =
-                'https://devices.tvms.io/getprofile?collection_key=' +
+                GLOBAL.GET_PROFILE_URL + '?collection_key=' +
                 GLOBAL.IMS +
                 '.' +
                 GLOBAL.CRM +
@@ -113,7 +113,7 @@ export default ({navigation, route}): React.ReactElement => {
                     );
                     try {
                         let response_ = await fetch(
-                            'https://devices.tvms.io/setprofile',
+                            GLOBAL.SET_PROFILE_URL,
                             {
                                 method: 'POST',
                                 headers: {
@@ -554,7 +554,7 @@ export default ({navigation, route}): React.ReactElement => {
                                 <UserAvatar
                                     size={GLOBAL.Device_IsAppleTV ? 150 : 90}
                                     name={LANG.getTranslation('add_profile')}
-                                    src="https://cloudtv.akamaized.net/apps/grey-circle-plus.png"
+                                    src={GLOBAL.USER_PROFILE_DEFAULT_AVATAR_URL}
                                     color="#555"
                                 />,
                             )}

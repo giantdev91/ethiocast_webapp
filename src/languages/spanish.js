@@ -54,7 +54,7 @@ module.exports = {
         m3u_subtext:
             'With M3U playlist you can create your own list of content',
         m3u_loadurl: 'Load M3U',
-        m3u_your_url: ' M3U:  https://example.com/list.m3u',
+        m3u_your_url: ' M3U: https://example.com/list.m3u',
         m3u_loading_header: 'Loading your M3U playlist',
         m3u_loading_subtext:
             'We are trying to load your M3U url and parsing it',

@@ -48,7 +48,7 @@ export default class DataLoader extends Component {
     }
     getUserIp() {
         this.getJson(
-            'https://cloudtv.akamaized.net/ip.php?_=' + moment().unix(),
+            GLOBAL.GET_USER_IP + '?_=' + moment().unix(),
         )
             .then(data => {
                 if (data != undefined) {
@@ -64,7 +64,7 @@ export default class DataLoader extends Component {
     }
     getUserIpFailBack() {
         this.getJson(
-            'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
+            GLOBAL.USER_IP_FAIL_BACK_URL + '?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
         )
             .then(data => {
                 if (data != undefined) {
@@ -307,7 +307,7 @@ export default class DataLoader extends Component {
     }
     getUserLocation() {
         this.getJson(
-            'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
+            GLOBAL.USER_IP_FAIL_BACK_URL + '?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
         )
             .then(data => {
                 if (data != undefined) {

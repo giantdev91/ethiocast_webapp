@@ -234,10 +234,10 @@ class DAL {
     async getLocation(ip) {
         GLOBAL.show_log && console.log(
             'get location: ',
-            'https://pro.ip-api.com/json/' + ip + '?key=orgpVdNotmSbX4q',
+            GLOBAL.GET_LOCATION_URL + ip + '?key=orgpVdNotmSbX4q',
         );
         return fetch(
-            'https://pro.ip-api.com/json/' + ip + '?key=orgpVdNotmSbX4q',
+            GLOBAL.GET_LOCATION_URL + ip + '?key=orgpVdNotmSbX4q',
         )
             .then(response_ => response_.json())
             .then(responseJson_ => {
@@ -250,13 +250,13 @@ class DAL {
     getDevices = async (collections, documents) => {
         GLOBAL.show_log && console.log(
             'get devices: ',
-            'https://devices.tvms.io/getdevice?collection_key=' +
+            GLOBAL.GET_DEVICE_URL + '?collection_key=' +
                 collections +
                 '&document_key=' +
                 documents,
         );
         return fetch(
-            'https://devices.tvms.io/getdevice?collection_key=' +
+            GLOBAL.GET_DEVICE_URL + '?collection_key=' +
                 collections +
                 '&document_key=' +
                 documents,
@@ -275,8 +275,8 @@ class DAL {
             });
     };
     setDevices = async (collections, documents, devices) => {
-        GLOBAL.show_log && console.log('set devices: ', 'https://devices.tvms.io/setdevice');
-        return fetch('https://devices.tvms.io/setdevice', {
+        GLOBAL.show_log && console.log('set devices: ', GLOBAL.SET_DEVICE_URL);
+        return fetch(GLOBAL.SET_DEVICE_URL, {
             method: 'POST',
             cors: 'no-cors',
             headers: {
@@ -295,13 +295,13 @@ class DAL {
     getProfile = async (collections, documents) => {
         GLOBAL.show_log && console.log(
             'get profile: ',
-            'https://devices.tvms.io/getprofile?collection_key=' +
+            GLOBAL.GET_PROFILE_URL + '?collection_key=' +
                 collections +
                 '&document_key=' +
                 documents,
         );
         return fetch(
-            'https://devices.tvms.io/getprofile?collection_key=' +
+            GLOBAL.GET_PROFILE_URL + '?collection_key=' +
                 collections +
                 '&document_key=' +
                 documents,
@@ -320,8 +320,8 @@ class DAL {
             });
     };
     setProfile = async (collections, documents, profiles) => {
-        GLOBAL.show_log && console.log('set profile: ', 'https://devices.tvms.io/setprofile');
-        return fetch('https://devices.tvms.io/setprofile', {
+        GLOBAL.show_log && console.log('set profile: ', GLOBAL.SET_PROFILE_URL);
+        return fetch(GLOBAL.SET_PROFILE_URL, {
             method: 'POST',
             cors: 'no-cors',
             headers: {
@@ -338,7 +338,7 @@ class DAL {
         }).catch(error => {});
     };
     setMessage = async () => {
-        var path = 'https://messaging.tvms.io/setmessage';
+        var path = GLOBAL.SET_MESSAGE_URL;
         GLOBAL.show_log && console.log('set message: ', path);
         return fetch(path, {
             method: 'POST',
@@ -355,7 +355,7 @@ class DAL {
                 message: {
                     content:
                         'Your subscription is about to expire, use the QR code to renew today.',
-                    hyperlink: 'https://google.com',
+                    hyperlink: GLOBAL.GOOGLE_COM_URL,
                     subject: 'Renew your subscription',
                     timestamp: moment().unix(),
                     type: 'Warning',
@@ -366,7 +366,7 @@ class DAL {
     getMessages = async (ims, crm, username, password) => {
         GLOBAL.show_log && console.log('get messages: ', path);
         var path =
-            'https://messaging.tvms.io/getmessages?ims=' +
+            GLOBAL.GET_MESSAGE_URL + '?ims=' +
             ims +
             '&crm=' +
             crm +
@@ -390,7 +390,7 @@ class DAL {
     deleteMessage = async (ims, crm, username, password, index) => {
         GLOBAL.show_log && console.log('delete message: ', path);
         var path =
-            'https://messaging.tvms.io/deletemessage?id=' +
+            GLOBAL.DELETE_MESSAGE_URL + '?id=' +
             index +
             '&ims=' +
             ims +
@@ -1196,7 +1196,7 @@ class DAL {
 
     async getWeather() {
         var path =
-            'https://www.worldweatheronline.com/feed/premium-weather-v2.ashx?q=' +
+            GLOBAL.WORLD_WEATHER_URL + '?q=' +
             GLOBAL.User.customer.city +
             '&date=today&key=a7a4a251cb125437120110&feedKey=887d9c34f8125518120110&format=json';
         GLOBAL.show_log && console.log('get weather: ', path);

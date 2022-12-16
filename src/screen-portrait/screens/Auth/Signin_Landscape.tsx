@@ -138,10 +138,10 @@ export default ({ navigation }): React.ReactElement => {
         try {
             GLOBAL.show_log && console.log(
                 'get user ip: ',
-                'https://cloudtv.akamaized.net/ip.php?_=' + moment().unix(),
+                GLOBAL.GET_USER_IP + '?_=' + moment().unix(),
             );
             let response = await fetch(
-                'https://cloudtv.akamaized.net/ip.php?_=' + moment().unix(),
+                GLOBAL.GET_USER_IP + '?_=' + moment().unix(),
             );
             let data = await response.json();
             GLOBAL.show_log && console.log('get user ip response: ', data);
@@ -159,10 +159,10 @@ export default ({ navigation }): React.ReactElement => {
         try {
             GLOBAL.show_log && console.log(
                 'get user ip fail back: ',
-                'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
+                GLOBAL.USER_IP_FAIL_BACK_URL + '?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
             let response = await fetch(
-                'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
+                GLOBAL.USER_IP_FAIL_BACK_URL + '?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
             let data = await response.json();
             GLOBAL.show_log && console.log('get user ip fail back response: ', data);
@@ -378,10 +378,10 @@ export default ({ navigation }): React.ReactElement => {
         try {
             GLOBAL.show_log && console.log(
                 'get user location: ',
-                'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
+                GLOBAL.USER_IP_FAIL_BACK_URL + '?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
             let response = await fetch(
-                'https://geo.ipify.org/api/v1?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
+                GLOBAL.USER_IP_FAIL_BACK_URL + '?apiKey=at_1hR71IevRJgz9lGCdYFdju173gYvC',
             );
             let data = await response.json();
             GLOBAL.show_log && console.log('get user location response: ', data);
@@ -989,7 +989,7 @@ export default ({ navigation }): React.ReactElement => {
     };
     const getRegisteredDevices = async () => {
         var path =
-            'https://devices.tvms.io/getdevice?collection_key=' +
+            GLOBAL.GET_DEVICE_URL + '?collection_key=' +
             GLOBAL.IMS +
             '.' +
             GLOBAL.CRM +

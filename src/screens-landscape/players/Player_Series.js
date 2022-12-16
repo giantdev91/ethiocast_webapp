@@ -344,7 +344,7 @@ export default class Player_Series extends PureComponent {
             GLOBAL.Casting == false
         ) {
             this.fadeBackOut();
-            this.setState({ stream: 'http://test.com' });
+            this.setState({ stream: GLOBAL.VIDEO_TEST_URL });
         }
         if (
             nextAppState == 'background' &&
@@ -352,7 +352,7 @@ export default class Player_Series extends PureComponent {
             GLOBAL.Casting == false
         ) {
             this.fadeBackOut();
-            this.setState({ stream: 'http://test.com' }, () => {
+            this.setState({ stream: GLOBAL.VIDEO_TEST_URL }, () => {
                 UTILS.closeAppAndLogout();
             });
         }
@@ -938,7 +938,7 @@ export default class Player_Series extends PureComponent {
     }
     getStreamCorrectLanguage(streams) {
         if (streams.length == 0) {
-            return 'https://nothing.com';
+            return GLOBAL.NOTHING_COM_URL;
         } else if (streams.length == 1) {
             return streams[0].url.toString().replace(' ', '');
         } else {
@@ -2378,7 +2378,7 @@ export default class Player_Series extends PureComponent {
                     uri:
                         this.state.paused || this.state.askbinge
                             ? GLOBAL.ImageUrlCMS + this.state.season.backdrop
-                            : 'https://mwaretv.com/image.png',
+                            : GLOBAL.PLAY_EDUCATION_BACKGROUND_URL,
                 }}
             >
                 <ImageBackground

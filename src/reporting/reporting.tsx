@@ -288,10 +288,10 @@ const sendContentReport = async (report, type) => {
     try {
         GLOBAL.show_log && console.log(
             'send content report: ',
-            'https://reporting.tvms.io/add/content',
+            GLOBAL.REPORTING_CONTENT_URL,
         );
         const fetchResponse = await fetch(
-            'https://reporting.tvms.io/add/content',
+            GLOBAL.REPORTING_CONTENT_URL,
             rep,
         );
         const data = await fetchResponse.json();
@@ -321,10 +321,10 @@ const sendUsageReport = async (report, type) => {
     try {
         GLOBAL.show_log && console.log(
             'send usage report: ',
-            'https://reporting.tvms.io/add/usage',
+            GLOBAL.REPORTING_ADD_URL,
         );
         // const fetchResponse = await fetch(
-        //     'https://reporting.tvms.io/add/usage',
+        //     GLOBAL.REPORTING_ADD_URL,
         //     rep,
         // );
         // const data = await fetchResponse.json();
